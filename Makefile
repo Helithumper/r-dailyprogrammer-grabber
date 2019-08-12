@@ -4,4 +4,7 @@ deploy:
 invoke:
 	serverless invoke -f grab_and_post
 
-.PHONY: deploy invoke
+test-local:
+	@python3 run.py
+
+.PHONY: deploy invoke test-local
