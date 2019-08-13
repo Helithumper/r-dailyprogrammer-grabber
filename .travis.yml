@@ -7,6 +7,7 @@ services:
 cache:
   directories:
     - node_modules
+    - $HOME/.nvm
     - $HOME/.cache/pip
 install:
   - pip install -r requirements.txt
