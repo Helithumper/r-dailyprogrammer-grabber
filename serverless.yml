@@ -2,10 +2,21 @@
 # Helithumper 2019
 
 service: dprogrammer-grabber
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
 provider:
   name: aws
   runtime: python3.7
   region: us-east-1
+  environment:
+    REDDIT_CLIENT_ID: ${env:REDDIT_CLIENT_ID}
+    REDDIT_CLIENT_SECRET: ${env:REDDIT_CLIENT_SECRET}
+    REDDIT_USER_AGENT: ${env:REDDIT_USER_AGENT}
+    GITHUB_ACCESS_TOKEN: ${env:GITHUB_ACCESS_TOKEN}
+    GITHUB_REPO_NAME: ${env:GITHUB_REPO_NAME}
 functions:
   grab_and_post:
     handler: handler.grab_and_post
